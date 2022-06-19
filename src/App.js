@@ -3,10 +3,11 @@ import './App.css'
 
 import Dashboard from './components/dashboard/Dashboard'
 import Drawer from './components/dashboard/drawer/Drawer'
-import Intermediary from './components/intermediary/Intermediary'
 import Login from './components/login/Login'
 import Orders from './components/orders/Orders'
 import Products from './components/products/Products'
+import Requests from './components/requests/Requests'
+import Users from './components/users/Users'
 
 function App() {
   return (
@@ -44,14 +45,14 @@ function App() {
 
         <Route
           exact
-          path='/orders'
+          path='/users'
           element={
             <>
               <main className='drawer'>
-                <Drawer orders={true} />
+                <Drawer users={true} />
               </main>
               <main className='right-content'>
-                <Orders />
+                <Users />
               </main>
             </>
           }
@@ -59,14 +60,14 @@ function App() {
 
         <Route
           exact
-          path='/intermediary'
+          path='/requests'
           element={
             <>
               <main className='drawer'>
-                <Drawer intermediary={true} />
+                <Drawer requests={true} />
               </main>
               <main className='right-content'>
-                <Intermediary />
+                <Requests />
               </main>
             </>
           }

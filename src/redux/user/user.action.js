@@ -15,6 +15,21 @@ export const setUserDetail = (user) => ({
   payload: user,
 })
 
+export const setUsers = (user) => ({
+  type: ActionsType.SET_USERS,
+  payload: user,
+})
+
+export const setProducts = (user) => ({
+  type: ActionsType.SET_PRODUCTS,
+  payload: user,
+})
+
+export const setRequests = (user) => ({
+  type: ActionsType.SET_REQEUSTS,
+  payload: user,
+})
+
 export const setAuthToken = (token) => ({
   type: ActionsType.SET_TOKEN,
   payload: token,
@@ -65,7 +80,7 @@ export const sellerLogin = (data) => {
 
           window.location.href = '/dashboard'
         } else {
-          toast.error('Seller not registered on this account', {
+          toast.error('Admin not registered on this account', {
             theme: 'colored',
             style: {
               borderRadius: 5,
@@ -84,6 +99,80 @@ export const sellerLogin = (data) => {
       })
   }
 }
+
+export const fetchUserDetail = (token, userId) => {
+  return (dispatch) => {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios
+      .get(`${Url}user/${userId}`, { headers: headers })
+      .then(async (resp) => {
+        dispatch(setUserDetail(resp.data))
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+}
+
+export const fetchUsers = (token) => {
+  return (dispatch) => {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios
+      .get(`${Url}user`, { headers: headers })
+      .then(async (resp) => {
+        dispatch(setUsers(resp.data))
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+}
+
+export const fetchProducts = (token) => {
+  return (dispatch) => {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios
+      .get(`${Url}product`, { headers: headers })
+      .then(async (resp) => {
+        dispatch(setProducts(resp.data))
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+}
+
+export const fetchRequests = (token) => {
+  return (dispatch) => {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+
+    axios
+      .get(`${Url}bargain`, { headers: headers })
+      .then(async (resp) => {
+        dispatch(setRequests(resp.data))
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+}
+
+
 
 export const logout = () => {
   return (dispatch) => {

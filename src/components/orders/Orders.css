@@ -94,7 +94,7 @@ select:focus {
 .view-table-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 75.5vw !important;
+  max-width: 100% !important;
 }
 
 .view-table-wrapper .add {
@@ -120,7 +120,7 @@ select:focus {
 
 table {
   min-width: 75.5vw !important;
-  max-width: 75.5vw !important;
+  max-width: 100% !important;
   overflow-x: scroll;
   border-spacing: 0 !important;
 }

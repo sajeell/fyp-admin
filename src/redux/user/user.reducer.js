@@ -7,6 +7,9 @@ const INITIAL_STATE = {
   userType: null,
   error: {},
   response: {},
+  users: [],
+  requests: [],
+  products: []
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -30,6 +33,21 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userType: action.payload,
+      }
+    case ActionsType.SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      }
+    case ActionsType.SET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      }
+    case ActionsType.SET_REQEUSTS:
+      return {
+        ...state,
+        requests: action.payload,
       }
     case ActionsType.API_ERROR:
       return {

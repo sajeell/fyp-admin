@@ -1,13 +1,13 @@
-import './Products.css'
+import './Requests.css'
 
 import ViewTable from './ViewTable'
 
-const Products = () => {
+const Requests = () => {
   return (
     <div className='products-wrapper'>
-      <h1>Products</h1>
+      <h1>Requests</h1>
       <div className='products-heading'>
-        <span>View Products</span>
+        <span>View Requests</span>
       </div>
       <div className='table'>
         <ViewTable />
@@ -16,4 +16,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default Requests

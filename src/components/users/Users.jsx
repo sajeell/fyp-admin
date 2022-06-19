@@ -1,13 +1,13 @@
-import './Products.css'
+import './Users.css'
 
 import ViewTable from './ViewTable'
 
-const Products = () => {
+const Users = () => {
   return (
     <div className='products-wrapper'>
-      <h1>Products</h1>
+      <h1>Users</h1>
       <div className='products-heading'>
-        <span>View Products</span>
+        <span>View Users</span>
       </div>
       <div className='table'>
         <ViewTable />
@@ -16,4 +16,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default Users

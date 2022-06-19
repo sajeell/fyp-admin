@@ -35,10 +35,9 @@ const Drawer = (props) => {
             )}
           </div>
         </div>
-
         <div className='drawer-button'>
           <div className='drawer-button-text'>
-            {props.products === true ? (
+            {props.products=== true ? (
               <strong>- Products</strong>
             ) : (
               <Link to='/products'>
@@ -47,26 +46,24 @@ const Drawer = (props) => {
             )}
           </div>
         </div>
-
         <div className='drawer-button'>
           <div className='drawer-button-text'>
-            {props.orders === true ? (
-              <strong>- Orders</strong>
+            {props.users === true ? (
+              <strong>- Users</strong>
             ) : (
-              <Link to='/orders'>
-                <span>- Orders</span>
+              <Link to='/users'>
+                <span>- Users</span>
               </Link>
             )}
           </div>
         </div>
-
         <div className='drawer-button'>
           <div className='drawer-button-text'>
-            {props.intermediary === true ? (
-              <strong>- Intermediary</strong>
+            {props.requests === true ? (
+              <strong>- Requests</strong>
             ) : (
-              <Link to='/intermediary'>
-                <span>- Intermediary</span>
+              <Link to='/requests'>
+                <span>- Requests</span>
               </Link>
             )}
           </div>

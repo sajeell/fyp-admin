@@ -1,76 +1,78 @@
+import { useEffect } from 'react'
 import { Button, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import './Products.css'
+import { fetchProducts } from '../../redux/user/user.action'
+import moment from 'moment'
 
 const ViewTable = () => {
+  const dispatch = useDispatch()
+  const token = useSelector((state) => state.user.token)
+  const products = useSelector((state) => state.user.products)
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchProducts(token))
+    }
+  }, [token])
+
+  useEffect(() => {
+    if (products) {
+      console.log(products)
+    }
+  }, [products])
+
   return (
     <>
-      <div className='search-wrapper'>
-        <div className='search-input'>
-          <input type='text' placeholder='ID' />
-        </div>
-        <div className='search-input'>
-          <input type='text' placeholder='Name' />
-        </div>
-        <div className='search-input'>
-          <select>
-            <option>Type</option>
-            <option value='Service' defaultChecked>
-              Service
-            </option>
-            <option value='Facility'>Antique</option>
-            <option value='Event'>Handmade</option>
-          </select>
-        </div>
-      </div>
-      <div style={{ display: 'flex' }}>
-        <div className='action-button'>Search</div>
-        &nbsp; &nbsp; &nbsp;
-        <div className='action-button'>Reset</div>
-      </div>
-      <br />
-      <br />
-      <div className='products-heading'>
-        <span>View</span>
-      </div>
       <div className='view-table-wrapper'>
-        <div className='add'>
-          <span>+ add</span>
-        </div>
         <div className='view-table'>
           <table>
             <thead>
               <tr>
                 <th>S. #</th>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Seller ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Featured</th>
                 <th>Type</th>
+                <th>Stock</th>
                 <th>Added On</th>
-                <th>Sold</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>#1234567891010110</td>
-                <td>Acoustic Guitar</td>
-                <td>Antique</td>
-                <td>22 June, 2021</td>
-                <td>22</td>
-                <td>
-                  <Row>
-                    <Button variant='outline-info' style={{ borderRadius: 50 }}>
-                      View Details
-                    </Button>
-                  </Row>
-                </td>
-              </tr>
+              {products.map((product, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{product._id}</td>
+                  <td>{product.sellerID}</td>
+                  <td>{product.title}</td>
+                  <td>{product.description}</td>
+                  <td>{product.featured === false ? 'False' : 'True'}</td>
+                  <td>{product.category}</td>
+                  <td>{product.stock < 0 ? 0 : product.stock}</td>
+                  <td>{moment(product.createdAt).format('ll')}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
     </>
   )
+}
+
+const object = {
+  "images": [],
+  "_id": "61e530fc7ac3823aa0464dee",
+  "createdAt": "2022-01-16T06:28:08.850Z",
+  "sellerID": "623c90c964cfe7eaaa4bdebc",
+  "featured": false,
+  "category": "Antique",
+  "description": "Guitar",
+  "title": "Antique Brown Gramophone",
+  "__v": 0,
+  "stock": -2
 }
 
 export default ViewTable

@@ -1,4 +1,4 @@
-import './Intermediary.css'
+import './Users.css'
 
 const Search = () => {
   return (

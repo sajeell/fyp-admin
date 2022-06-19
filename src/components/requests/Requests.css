@@ -12,7 +12,7 @@
   --green-font-color: #009600;
 }
 
-.intermediary-wrapper {
+.products-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -25,7 +25,7 @@
 
 /* Heading */
 
-.intermediary-heading {
+.products-heading {
   padding-left: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -94,7 +94,7 @@ select:focus {
 .view-table-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 75.5vw !important;
+  max-width: 98% !important;
 }
 
 .view-table-wrapper .add {
@@ -114,13 +114,13 @@ select:focus {
 .view-table-wrapper .view-table {
   text-align: center;
   margin-top: 10px;
-  width: 100%;
+  width: 100% !important;
   overflow-x: auto;
 }
 
 table {
-  min-width: 75.5vw !important;
-  max-width: 75.5vw !important;
+  min-width: 98% !important;
+  max-width: 98% !important;
   overflow-x: scroll;
   border-spacing: 0 !important;
 }
